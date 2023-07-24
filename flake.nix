@@ -13,13 +13,16 @@
       apple-macbook-pro-11-5 = import ./apple/macbook-pro/11-5;
       apple-macbook-pro-12-1 = import ./apple/macbook-pro/12-1;
       apple-macbook-pro-14-1 = import ./apple/macbook-pro/14-1;
+      apple-t2 = import ./apple/t2;
       asus-battery = import ./asus/battery.nix;
       asus-fx504gd = import ./asus/fx504gd;
       asus-rog-strix-g733qs = import ./asus/rog-strix/g733qs;
       asus-zephyrus-ga401 = import ./asus/zephyrus/ga401;
       asus-zephyrus-ga402 = import ./asus/zephyrus/ga402;
+      asus-zephyrus-ga502 = import ./asus/zephyrus/ga502;
       asus-zephyrus-ga503 = import ./asus/zephyrus/ga503;
       beagleboard-pocketbeagle = import ./beagleboard/pocketbeagle;
+      deciso-dec = import ./deciso/dec;
       dell-e7240 = import ./dell/e7240;
       dell-g3-3779 = import ./dell/g3/3779;
       dell-inspiron-5509 = import ./dell/inspiron/5509;
@@ -160,6 +163,7 @@
       onenetbook-4 = import ./onenetbook/4;
       pcengines-apu = import ./pcengines/apu;
       pine64-pinebook-pro = import ./pine64/pinebook-pro;
+      pine64-star64 = import ./pine64/star64;
       purism-librem-13v3 = import ./purism/librem/13v3;
       purism-librem-15v3 = import ./purism/librem/15v3;
       raspberry-pi-2 = import ./raspberry-pi/2;

@@ -80,12 +80,15 @@ See code for all available configurations.
 | [Apple MacBook Pro 11,5](apple/macbook-pro/11-5)                    | `<nixos-hardware/apple/macbook-pro/11-5>`          |
 | [Apple MacBook Pro 12,1](apple/macbook-pro/12-1)                    | `<nixos-hardware/apple/macbook-pro/12-1>`          |
 | [Apple MacBook Pro 14,1](apple/macbook-pro/14-1)                    | `<nixos-hardware/apple/macbook-pro/14-1>`          |
+| [Apple Macs with a T2 Chip](apple/t2)                               | `<nixos-hardware/apple/t2>`                        |
 | [Asus ROG Strix G733QS](asus/rog-strix/g733qs)                      | `<nixos-hardware/asus/rog-strix/g733qs>`           |
 | [Asus ROG Zephyrus G14 GA401](asus/zephyrus/ga401)                  | `<nixos-hardware/asus/zephyrus/ga401>`             |
 | [Asus ROG Zephyrus G14 GA402](asus/zephyrus/ga402)                  | `<nixos-hardware/asus/zephyrus/ga402>`             |
+| [Asus ROG Zephyrus G15 GA502](asus/zephyrus/ga502)                  | `<nixos-hardware/asus/zephyrus/ga502>`             |
 | [Asus ROG Zephyrus G15 GA503](asus/zephyrus/ga503)                  | `<nixos-hardware/asus/zephyrus/ga503>`             |
 | [Asus TUF FX504GD](asus/fx504gd)                                    | `<nixos-hardware/asus/fx504gd>`                    |
 | [BeagleBoard PocketBeagle](beagleboard/pocketbeagle)                | `<nixos-hardware/beagleboard/pocketbeagle>`        |
+| [Deciso DEC series](deciso/dec)                                     | `<nixos-hardware/deciso/dec>`                      |
 | [Dell G3 3779](dell/g3/3779)                                        | `<nixos-hardware/dell/g3/3779>`                    |
 | [Dell Inspiron 5509](dell/inspiron/5509)                            | `<nixos-hardware/dell/inspiron/5509>`              |
 | [Dell Inspiron 5515](dell/inspiron/5515)                            | `<nixos-hardware/dell/inspiron/5515>`              |
@@ -221,6 +224,7 @@ See code for all available configurations.
 | [Panasonic Let's Note CF-LX4 ](panasonic/letsnote/cf-lx4)           | `<nixos-hardware/panasonic/letsnote/cf-lx4>`       |
 | [PC Engines APU](pcengines/apu)                                     | `<nixos-hardware/pcengines/apu>`                   |
 | [PINE64 Pinebook Pro](pine64/pinebook-pro/)                         | `<nixos-hardware/pine64/pinebook-pro>`             |
+| [PINE64 STAR64](pine64/star64/)                                     | `<nixos-hardware/pine64/star64>`                   |
 | [Purism Librem 13v3](purism/librem/13v3)                            | `<nixos-hardware/purism/librem/13v3>`              |
 | [Purism Librem 15v3](purism/librem/13v3)                            | `<nixos-hardware/purism/librem/15v3>`              |
 | [Raspberry Pi 2](raspberry-pi/2)                                    | `<nixos-hardware/raspberry-pi/2>`                  |
