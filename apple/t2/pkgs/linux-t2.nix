@@ -4,11 +4,11 @@ let
   patchRepo = fetchFromGitHub {
     owner = "t2linux";
     repo = "linux-t2-patches";
-    rev = "c0db79a25bc37dbd0c27636914b3903016a2fc39";
-    hash = "sha256-VILJAK7F0E/8Z3sOzsUpS9dmtpull2XVXQkakZ0UTIA=";
+    rev = "46dd873d1d9d12b26916790045008a91a95d0c11";
+    hash = "sha256-YGUGuzsAJFtZYjIW9d2XU4eGKNvMKCaWXqgqJn5TdeY=";
   };
 
-  version = "6.4.2";
+  version = "6.5";
   majorVersion = with lib; (elemAt (take 1 (splitVersion version)) 0);
 in
 buildLinux (args // {
@@ -20,7 +20,7 @@ buildLinux (args // {
 
   src = fetchurl {
     url = "mirror://kernel/linux/kernel/v${majorVersion}.x/linux-${version}.tar.xz";
-    hash = "sha256-oyarIkF2xbF8c8nMrYXzLkm25Odkhh1XWVcnt+8QBiw=";
+    hash = "sha256-eldLvCCALqdrUsp/rwcmf3IEXoYbGJFcUnKpjCer+IQ=";
   };
 
   structuredExtraConfig = with lib.kernel; {

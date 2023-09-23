@@ -1,7 +1,7 @@
 { lib, callPackage, linuxPackagesFor, kernelPatches, ... }:
 
 let
-  modDirVersion = "6.4.0";
+  modDirVersion = "6.5.0";
   linuxPkg = { lib, fetchFromGitHub, buildLinux, ... }@args:
     buildLinux (args // {
       version = "${modDirVersion}-starfive-visionfive2";
@@ -9,15 +9,11 @@ let
       src = fetchFromGitHub {
         owner = "starfive-tech";
         repo = "linux";
-        rev = "e5a381c51d624ffd8784db908a58ae227d0608a4";
-        sha256 = "sha256-gg3+2ITdnpo49UmySiAJnk47STW1I7kF7fsKGBVayRE=";
+        rev = "0dfeb6ace464f0c455a9508815bb9f70760d6faf";
+        hash = "sha256-ZDMvEhnJtbyCVNI/WbE80k7ZWOldF491mgx6K/iPgdE=";
       };
 
-      inherit modDirVersion;
-      kernelPatches = [{
-        name = "verisilicon";
-        patch = ./verisilicon.patch;
-      }] ++ kernelPatches;
+      inherit modDirVersion kernelPatches;
 
       structuredExtraConfig = with lib.kernel; {
         PINCTRL_STARFIVE_JH7110_SYS = yes;

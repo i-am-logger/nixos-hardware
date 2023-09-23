@@ -8,6 +8,8 @@
     name = "microsoft-surface-patches-linux-${version}";
     patch = null;
     structuredExtraConfig = with kernel; {
+      STREAMING_MEDIA = yes;
+
       #
       # Surface Aggregator Module
       #
@@ -15,7 +17,9 @@
       SURFACE_AGGREGATOR_ERROR_INJECTION = no;
       SURFACE_AGGREGATOR_BUS = yes;
       SURFACE_AGGREGATOR_CDEV = module;
+      SURFACE_AGGREGATOR_HUB = module;
       SURFACE_AGGREGATOR_REGISTRY = module;
+      SURFACE_AGGREGATOR_TABLET_SWITCH = module;
 
       SURFACE_ACPI_NOTIFY = module;
       SURFACE_DTX = module;
@@ -28,15 +32,14 @@
       CHARGER_SURFACE = module;
 
       #
-      # Surface laptop 1 keyboard
-      #
-      SERIAL_DEV_BUS = yes;
-      SERIAL_DEV_CTRL_TTYPORT = yes;
-
-      #
       # Surface Hotplug
       #
       SURFACE_HOTPLUG = module;
+
+      #
+      # Intel Touch Host Controller
+      #
+      HID_ITHC = module;
 
       #
       # IPTS touchscreen
@@ -49,15 +52,19 @@
       #
       # Cameras: IPU3
       #
+      VIDEO_DW9719 = module;
       VIDEO_IPU3_IMGU = module;
       VIDEO_IPU3_CIO2 = module;
       CIO2_BRIDGE = yes;
       INTEL_SKL_INT3472 = module;
+      REGULATOR_TPS68470 = module;
+      COMMON_CLK_TPS68470 = module;
 
       #
       # Cameras: Sensor drivers
       #
       VIDEO_OV5693 = module;
+      VIDEO_OV7251 = module;
       VIDEO_OV8865 = module;
 
       #
@@ -69,7 +76,6 @@
       # Other Drivers
       #
       INPUT_SOC_BUTTON_ARRAY = module;
-      SURFACE_3_BUTTON = module;
       SURFACE_3_POWER_OPREGION = module;
       SURFACE_PRO3_BUTTON = module;
       SURFACE_GPE = module;
@@ -93,31 +99,43 @@
     patch = patchDir + "/0004-ipts.patch";
   }
   {
-    name = "ms-surface/0005-surface-sam";
-    patch = patchDir + "/0005-surface-sam.patch";
+    name = "ms-surface/0005-ithc";
+    patch = patchDir + "/0005-ithc.patch";
   }
   {
-    name = "ms-surface/0006-surface-sam-over-hid";
-    patch = patchDir + "/0006-surface-sam-over-hid.patch";
+    name = "ms-surface/0006-surface-sam";
+    patch = patchDir + "/0006-surface-sam.patch";
   }
   {
-    name = "ms-surface/0007-surface-button";
-    patch = patchDir + "/0007-surface-button.patch";
+    name = "ms-surface/0007-surface-sam-over-hid";
+    patch = patchDir + "/0007-surface-sam-over-hid.patch";
   }
   {
-    name = "ms-surface/0008-surface-typecover";
-    patch = patchDir + "/0008-surface-typecover.patch";
+    name = "ms-surface/0008-surface-button";
+    patch = patchDir + "/0008-surface-button.patch";
   }
   {
-    name = "ms-surface/0009-surface-gpe";
-    patch = patchDir + "/0009-surface-gpe.patch";
+    name = "ms-surface/0009-surface-typecover";
+    patch = patchDir + "/0009-surface-typecover.patch";
   }
   {
-    name = "ms-surface/0010-cameras";
-    patch = patchDir + "/0010-cameras.patch";
+    name = "ms-surface/0010-surface-shutdown";
+    patch = patchDir + "/0010-surface-shutdown.patch";
   }
   {
-    name = "ms-surface/0011-amd-gpio";
-    patch = patchDir + "/0011-amd-gpio.patch";
+    name = "ms-surface/0011-surface-gpe";
+    patch = patchDir + "/0011-surface-gpe.patch";
+  }
+  {
+    name = "ms-surface/0012-cameras";
+    patch = patchDir + "/0012-cameras.patch";
+  }
+  {
+    name = "ms-surface/0013-amd-gpio";
+    patch = patchDir + "/0013-amd-gpio.patch";
+  }
+  {
+    name = "ms-surface/0014-rtc";
+    patch = patchDir + "/0014-rtc.patch";
   }
 ]

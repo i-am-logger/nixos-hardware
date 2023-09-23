@@ -90,6 +90,7 @@ See code for all available configurations.
 | [BeagleBoard PocketBeagle](beagleboard/pocketbeagle)                | `<nixos-hardware/beagleboard/pocketbeagle>`        |
 | [Deciso DEC series](deciso/dec)                                     | `<nixos-hardware/deciso/dec>`                      |
 | [Dell G3 3779](dell/g3/3779)                                        | `<nixos-hardware/dell/g3/3779>`                    |
+| [Dell Inspiron 14 5420](dell/inspiron/14-5420)                      | `<nixos-hardawre/dell/inspiron/14-5420>`           |
 | [Dell Inspiron 5509](dell/inspiron/5509)                            | `<nixos-hardware/dell/inspiron/5509>`              |
 | [Dell Inspiron 5515](dell/inspiron/5515)                            | `<nixos-hardware/dell/inspiron/5515>`              |
 | [Dell Inspiron 7405](dell/inspiron/7405)                            | `<nixos-hardware/dell/inspiron/7405>`              |
@@ -104,6 +105,7 @@ See code for all available configurations.
 | [Dell XPS 13 7390](dell/xps/13-7390)                                | `<nixos-hardware/dell/xps/13-7390>`                |
 | [Dell XPS 13 9300](dell/xps/13-9300)                                | `<nixos-hardware/dell/xps/13-9300>`                |
 | [Dell XPS 13 9310](dell/xps/13-9310)                                | `<nixos-hardware/dell/xps/13-9310>`                |
+| [Dell XPS 13 9333](dell/xps/13-9333)                                | `<nixos-hardware/dell/xps/13-9333>`                |
 | [Dell XPS 13 9343](dell/xps/13-9343)                                | `<nixos-hardware/dell/xps/13-9343>`                |
 | [Dell XPS 13 9350](dell/xps/13-9350)                                | `<nixos-hardware/dell/xps/13-9350>`                |
 | [Dell XPS 13 9360](dell/xps/13-9360)                                | `<nixos-hardware/dell/xps/13-9360>`                |
@@ -124,9 +126,11 @@ See code for all available configurations.
 | [Dell XPS 17 9700, nvidia](dell/xps/17-9700/nvidia)                 | `<nixos-hardware/dell/xps/17-9700/nvidia>`         |
 | [Dell XPS 17 9710, intel only](dell/xps/17-9710/intel)              | `<nixos-hardware/dell/xps/17-9710/intel>`          |
 | [Dell XPS E7240](dell/e7240)                                        | `<nixos-hardware/dell/e7240>`                      |
-| [Framework](framework)                                              | `<nixos-hardware/framework>`                       |
+| [Framework 11th Gen Intel Core](framework)                          | `<nixos-hardware/framework>`                       |
 | [Framework 12th Gen Intel Core](framework/12th-gen-intel)           | `<nixos-hardware/framework/12th-gen-intel>`        |
+| [Framework 13th Gen Intel Core](framework/13th-gen-intel)           | `<nixos-hardware/framework/13th-gen-intel>`        |
 | [FriendlyARM NanoPC-T4](friendlyarm/nanopc-t4)                      | `<nixos-hardware/friendlyarm/nanopc-t4>`           |
+| [FriendlyARM NanoPi R5s](friendlyarm/nanopi-r5s)                    | `<nixos-hardware/friendlyarm/nanopi-r5s>`          |
 | [Focus M2 Gen 1](focus/m2/gen1)                                     | `<nixos-hardware/focus/m2/gen1>`                   |
 | [GPD MicroPC](gpd/micropc)                                          | `<nixos-hardware/gpd/micropc>`                     |
 | [GPD P2 Max](gpd/p2-max)                                            | `<nixos-hardware/gpd/p2-max>`                      |
@@ -211,7 +215,7 @@ See code for all available configurations.
 | [LENOVO Yoga 6 13ALC6 82ND](lenovo/yoga/6/13ALC6)                   | `<nixos-hardware/lenovo/yoga/6/13ALC6>`            |
 | [MSI GS60 2QE](msi/gs60)                                            | `<nixos-hardware/msi/gs60>`                        |
 | [MSI GL62/CX62](msi/gl62)                                           | `<nixos-hardware/msi/gl62>`                        |
-| [Micrchip Icicle Kit](microchip/icicle-kit)                         | `<nixos-hardware/microchip/icicle-kit>`            |
+| [Microchip Icicle Kit](microchip/icicle-kit)                        | `<nixos-hardware/microchip/icicle-kit>`            |
 | [Microsoft Surface Go](microsoft/surface/surface-go)                | `<nixos-hardware/microsoft/surface/surface-go>`    |
 | [Microsoft Surface Pro (Intel)](microsoft/surface/surface-pro-intel)| `<nixos-hardware/microsoft/surface/surface-pro-intel>`|
 | [Microsoft Surface Laptop (AMD)](microsoft/surface/surface-laptop-amd)| `<nixos-hardware/microsoft/surface/surface-laptop-amd>`|
@@ -219,6 +223,7 @@ See code for all available configurations.
 | [Microsoft Surface Pro 3](microsoft/surface-pro/3)                  | `<nixos-hardware/microsoft/surface-pro/3>`         |
 | [Morefine M600](morefine/m600)                                      | `<nixos-hardware/morefine/m600>`                   |
 | [Hardkernel Odroid HC4](hardkernel/odroid-hc4/default.nix)          | `<nixos-hardware/hardkernel/odroid-hc4>`           |
+| [Hardkernel Odroid H3](hardkernel/odroid-h3/default.nix)            | `<nixos-hardware/hardkernel/odroid-h3>`            |
 | [Omen en00015p](omen/en00015p)                                      | `<nixos-hardware/omen/en00015p>`                   |
 | [One-Netbook OneNetbook 4](onenetbook/4)                            | `<nixos-hardware/onenetbook/4>`                    |
 | [Panasonic Let's Note CF-LX4 ](panasonic/letsnote/cf-lx4)           | `<nixos-hardware/panasonic/letsnote/cf-lx4>`       |
@@ -227,6 +232,7 @@ See code for all available configurations.
 | [PINE64 STAR64](pine64/star64/)                                     | `<nixos-hardware/pine64/star64>`                   |
 | [Purism Librem 13v3](purism/librem/13v3)                            | `<nixos-hardware/purism/librem/13v3>`              |
 | [Purism Librem 15v3](purism/librem/13v3)                            | `<nixos-hardware/purism/librem/15v3>`              |
+| [Purism Librem 5r4](purism/librem/5r4)                              | `<nixos-hardware/purism/librem/5r4>`               |
 | [Raspberry Pi 2](raspberry-pi/2)                                    | `<nixos-hardware/raspberry-pi/2>`                  |
 | [Raspberry Pi 4](raspberry-pi/4)                                    | `<nixos-hardware/raspberry-pi/4>`                  |
 | [Samsung Series 9 NP900X3C](samsung/np900x3c)                       | `<nixos-hardware/samsung/np900x3c>`                |

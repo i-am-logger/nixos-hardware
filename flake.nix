@@ -25,6 +25,7 @@
       deciso-dec = import ./deciso/dec;
       dell-e7240 = import ./dell/e7240;
       dell-g3-3779 = import ./dell/g3/3779;
+      dell-inspiron-14-5420 = import ./dell/inspiron/14-5420;
       dell-inspiron-5509 = import ./dell/inspiron/5509;
       dell-inspiron-5515 = import ./dell/inspiron/5515;
       dell-inspiron-7405 = import ./dell/inspiron/7405;
@@ -39,6 +40,7 @@
       dell-xps-13-7390 = import ./dell/xps/13-7390;
       dell-xps-13-9300 = import ./dell/xps/13-9300;
       dell-xps-13-9310 = import ./dell/xps/13-9310;
+      dell-xps-13-9333 = import ./dell/xps/13-9333;
       dell-xps-13-9343 = import ./dell/xps/13-9343;
       dell-xps-13-9350 = import ./dell/xps/13-9350;
       dell-xps-13-9360 = import ./dell/xps/13-9360;
@@ -60,7 +62,9 @@
       dell-xps-17-9710-intel = import ./dell/xps/17-9710/intel;
       framework = import ./framework;
       framework-12th-gen-intel = import ./framework/12th-gen-intel;
+      framework-13th-gen-intel = import ./framework/13th-gen-intel;
       friendlyarm-nanopc-t4 = import ./friendlyarm/nanopc-t4;
+      friendlyarm-nanopi-r5s = import ./friendlyarm/nanopi-r5s;
       focus-m2-gen1 = import ./focus/m2/gen1;
       google-pixelbook = import ./google/pixelbook;
       gpd-micropc = import ./gpd/micropc;
@@ -159,6 +163,7 @@
       msi-gl62 = import ./msi/gl62;
       nxp-imx8qm-mek = import ./nxp/imx8qm-mek;
       hardkernel-odroid-hc4 = import ./hardkernel/odroid-hc4;
+      hardkernel-odroid-h3 = import ./hardkernel/odroid-h3;
       omen-en00015p = import ./omen/en00015p;
       onenetbook-4 = import ./onenetbook/4;
       pcengines-apu = import ./pcengines/apu;
@@ -166,6 +171,7 @@
       pine64-star64 = import ./pine64/star64;
       purism-librem-13v3 = import ./purism/librem/13v3;
       purism-librem-15v3 = import ./purism/librem/15v3;
+      purism-librem-5r4 = import ./purism/librem/5r4;
       raspberry-pi-2 = import ./raspberry-pi/2;
       raspberry-pi-4 = import ./raspberry-pi/4;
       kobol-helios4 = import ./kobol/helios4;

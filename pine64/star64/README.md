@@ -8,7 +8,7 @@ Create and configure the `flake.nix` file:
   inputs.nixos-hardware.url = "github:nixos/nixos-hardware";
 
 
-  outputs = { self, nixpkgs, nixos-hardware, flake-utils, ... }:
+  outputs = { self, nixpkgs, nixos-hardware, ... }:
     let
       supportedSystems = [
         "x86_64-linux"
@@ -82,6 +82,24 @@ hardware.deviceTree.overlays = [{
 ```
 
 # Updating the bootloader
+
+## eMMC
+
+Install the firmware update script
+
+``` nix
+environment.systemPackages = [
+  (pkgs.callPackage
+    "${nixos-hardware}/pine64/star64/firmware.nix"
+    { }).updater-mmc
+];
+```
+
+Then run as root
+
+``` sh
+star64-firmware-update-mmc
+```
 
 ## SD-Card
 

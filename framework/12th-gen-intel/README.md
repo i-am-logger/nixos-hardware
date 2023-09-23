@@ -1,4 +1,4 @@
-# [Framework Laptop](https://frame.work/)
+# [Framework Laptop 13](https://frame.work/)
 
 ## Updating Firmware
 
@@ -14,4 +14,4 @@ Then run
  $ sudo fwupdmgr update
 ```
 
-[Latest Update](https://fwupd.org/lvfs/devices/work.frame.Laptop.TGL.BIOS.firmware)
+- [Latest Update](https://fwupd.org/lvfs/devices/work.frame.Laptop.ADL.BIOS.firmware)
