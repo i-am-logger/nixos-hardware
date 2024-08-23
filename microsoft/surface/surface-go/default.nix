@@ -14,10 +14,8 @@ in {
     ../../../common/pc/ssd
     # The Intel CPU module auto-includes Intel's GPU:
     ../../../common/cpu/intel
-    ../../../common/cpu/intel/kaby-lake
+    ../../../common/gpu/intel/kaby-lake
   ];
-
-  microsoft-surface.kernelVersion = "6.1.53";
 
   boot.kernelParams = [
     "i915.enable_rc6=1"

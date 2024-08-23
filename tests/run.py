@@ -1,14 +1,14 @@
-#!/usr/bin/env nix-shell
-#!nix-shell --quiet -p nix -p python3 -i python
+#!/usr/bin/env python3
 
 import argparse
+import json
 import multiprocessing
 import re
+import shlex
 import subprocess
 import sys
-from functools import partial
 from pathlib import Path
-from typing import List, Tuple
+from tempfile import TemporaryDirectory
 
 TEST_ROOT = Path(__file__).resolve().parent
 ROOT = TEST_ROOT.parent
@@ -17,51 +17,7 @@ GREEN = "\033[92m"
 RED = "\033[91m"
 RESET = "\033[0m"
 
-
-def parse_readme() -> List[str]:
-    profiles = set()
-    with open(ROOT.joinpath("README.md")) as f:
-        for line in f:
-            results = re.findall(r"<nixos-hardware/[^>]+>", line)
-            profiles.update(results)
-    return list(profiles)
-
-
-def build_profile(
-    profile: str, verbose: bool
-) -> Tuple[str, subprocess.CompletedProcess]:
-    # Hard-code this for now until we have enough other architectures to care about this.
-    system = "x86_64-linux"
-    if "raspberry-pi/2" in profile:
-        system = "armv7l-linux"
-    if "raspberry-pi/4" in profile:
-        system = "aarch64-linux"
-
-    cmd = [
-        "nix",
-        "build",
-        "--extra-experimental-features", "nix-command",
-        "-f",
-        "build-profile.nix",
-        "-I",
-        f"nixos-hardware={ROOT}",
-        "--show-trace",
-        "--system",
-        system,
-        "--arg",
-        "profile",
-        profile,
-    ]
-
-    # uses import from derivation
-    if profile != "<nixos-hardware/toshiba/swanky>":
-        cmd += ["--dry-run"]
-    if verbose:
-        print(f"$ {' '.join(cmd)}")
-    res = subprocess.run(
-        cmd, cwd=TEST_ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
-    )
-    return (profile, res)
+re_nixos_hardware = re.compile(r"<nixos-hardware/([^>]+)>")
 
 
 def parse_args() -> argparse.Namespace:
@@ -74,44 +30,70 @@ def parse_args() -> argparse.Namespace:
         "If set to 1 it disable multi processing (suitable for debugging)",
     )
     parser.add_argument(
-        "--verbose", action="store_true", help="Print evaluation commands executed",
+        "--verbose",
+        action="store_true",
+        help="Print evaluation commands executed",
     )
-    parser.add_argument("profiles", nargs="*")
+    parser.add_argument(
+        "--nixos-hardware",
+        help="Print evaluation commands executed",
+    )
     return parser.parse_args()
+
+
+def run_eval_test(nixos_hardware: str, gcroot_dir: Path, jobs: int) -> list[str]:
+    failed_profiles = []
+    cmd = [
+        "nix-eval-jobs",
+        "--extra-experimental-features",
+        "flakes",
+        "--override-input",
+        "nixos-hardware",
+        nixos_hardware,
+        "--gc-roots-dir",
+        str(gcroot_dir),
+        "--max-memory-size",
+        "2048",
+        "--workers",
+        str(jobs),
+        "--flake",
+        str(TEST_ROOT) + "#checks",
+        "--force-recurse",
+    ]
+    print(" ".join(map(shlex.quote,cmd)))
+    proc = subprocess.Popen(
+        cmd,
+        stdout=subprocess.PIPE,
+        text=True,
+    )
+
+    with proc as p:
+        assert p.stdout is not None
+        for line in p.stdout:
+            data = json.loads(line)
+            attr = data.get("attr")
+            if "error" in data:
+                failed_profiles.append(attr)
+                print(f"{RED}FAIL {attr}:{RESET}", file=sys.stderr)
+                print(f"{RED}{data['error']}{RESET}", file=sys.stderr)
+            else:
+                print(f"{GREEN}OK {attr}{RESET}")
+    return failed_profiles
 
 
 def main() -> None:
     args = parse_args()
-    if len(args.profiles) == 0:
-        profiles = parse_readme()
-    else:
-        profiles = args.profiles
 
     failed_profiles = []
 
-    def eval_finished(args: Tuple[str, subprocess.CompletedProcess]) -> None:
-        profile, res = args
-        if res.returncode == 0:
-            print(f"{GREEN}OK {profile}{RESET}")
-        else:
-            print(f"{RED}FAIL {profile}:{RESET}", file=sys.stderr)
-            if res.stdout != "":
-                print(f"{RED}{res.stdout.rstrip()}{RESET}", file=sys.stderr)
-            print(f"{RED}{res.stderr.rstrip()}{RESET}", file=sys.stderr)
-            failed_profiles.append(profile)
+    with TemporaryDirectory() as tmpdir:
+        gcroot_dir = Path(tmpdir) / "gcroot"
+        failed_profiles = run_eval_test(args.nixos_hardware, gcroot_dir, args.jobs)
 
-    build = partial(build_profile, verbose=args.verbose)
-    if len(profiles) == 0 or args.jobs == 1:
-        for profile in profiles:
-            eval_finished(build(profile))
-    else:
-        pool = multiprocessing.Pool(processes=args.jobs)
-        for r in pool.imap(build, profiles):
-            eval_finished(r)
     if len(failed_profiles) > 0:
         print(f"\n{RED}The following {len(failed_profiles)} test(s) failed:{RESET}")
         for profile in failed_profiles:
-            print(f"{sys.argv[0]} '{profile}'")
+            print(f" '{profile}'")
         sys.exit(1)
 
 

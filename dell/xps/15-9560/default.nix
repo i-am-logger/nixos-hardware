@@ -1,25 +1,21 @@
-{ lib, pkgs, ... }:
-
 {
   imports = [
     ../../../common/cpu/intel
-    ../../../common/cpu/intel/kaby-lake
+    ../../../common/gpu/intel/kaby-lake
     ../../../common/pc/laptop
     ./xps-common.nix
+    ../../../common/gpu/nvidia
   ];
 
-  # This configuration makes intel default and optionaly applications could run nvidia with optirun.
-  # To Optimize for your use case import intel or nvidia only configuration instead
-  # xps-9560/intel
-  # or
-  # xps-9560/nvidia
+  hardware.graphics.enable = true;
 
+  hardware.nvidia.modesetting.enable = true;
 
- ##### bumblebee working, needs reboot to take affect and to use it run: optirun "<application>"
- services.xserver.videoDrivers = [ "intel" "nvidia" ];
- boot.blacklistedKernelModules = [ "nouveau" "bbswitch" ];
- boot.extraModulePackages = [ pkgs.linuxPackages.nvidia_x11 ];
- hardware.bumblebee.enable = lib.mkDefault true;
- hardware.bumblebee.pmMethod = lib.mkDefault "none";
+  hardware.nvidia.prime = {
+  # integrated
+    intelBusId = "PCI:0:2:0";
 
+  # dedicated
+    nvidiaBusId = "PCI:1:0:0";
+  };
 }

@@ -4,16 +4,19 @@
   imports = [
     ./audio.nix
     ./backlight.nix
+    ./bluetooth.nix
     ./cpu-revision.nix
+    ./digi-amp-plus.nix
     ./dwc2.nix
     ./i2c.nix
+    ./leds.nix
     ./modesetting.nix
+    ./pkgs-overlays.nix
     ./poe-hat.nix
     ./poe-plus-hat.nix
+    ./pwm0.nix
     ./tc358743.nix
     ./touch-ft5406.nix
-    ./pwm0.nix
-    ./pkgs-overlays.nix
     ./xhci.nix
   ];
 
@@ -23,7 +26,7 @@
       "usbhid"
       "usb_storage"
       "vc4"
-      "pcie_brcmstb"      # required for the pcie bus to work
+      "pcie_brcmstb" # required for the pcie bus to work
       "reset-raspberrypi" # required for vl805 firmware to load
     ];
 
